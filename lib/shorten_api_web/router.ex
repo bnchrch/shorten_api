@@ -8,6 +8,7 @@ defmodule ShortenApiWeb.Router do
   scope "/api", ShortenApiWeb do
     pipe_through :api
     resources "/links", LinkController, except: [:edit]
+    resources "/users", UserController, except: [:new, :edit]
   end
 
   scope "/", ShortenApiWeb do
