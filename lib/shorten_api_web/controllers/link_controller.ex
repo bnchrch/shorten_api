@@ -31,4 +31,11 @@ defmodule ShortenApiWeb.LinkController do
       send_resp(conn, :no_content, "")
     end
   end
+
+  def get_and_redirect(conn, %{"id" => id}) do
+    link = id
+      |> List.first()
+      |> Links.get_link!()
+    redirect(conn, external: link.url)
+  end
 end
